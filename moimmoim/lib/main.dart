@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:projectapp/common/index.dart';
 import 'package:projectapp/controller/firebase_auth_prov.dart';
-import 'package:projectapp/controller/theme_provider.dart';
+import 'package:projectapp/controller/index.dart';
+import 'package:projectapp/page/home.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
             themeMode: ThemeMode.system,
             theme: ThemeData.light(),
             darkTheme: ThemeData.dark(),
-            home: Index(title: 'Home'),
+            home: Index(title: 'Home',),
           ),
     );
   }

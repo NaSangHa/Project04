@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:projectapp/widgets/snackbar.dart';
 
 class FirebaseAuthProv extends ChangeNotifier{
   final FirebaseAuth _auth;
@@ -42,7 +41,6 @@ class FirebaseAuthProv extends ChangeNotifier{
         }
       }
     } on FirebaseAuthException catch (e) {
-      showSnackBar(context, e.message!); // Displaying the error message
     }
     notifyListeners();
   }
@@ -52,7 +50,6 @@ class FirebaseAuthProv extends ChangeNotifier{
     try {
       await _auth.signOut();
     } on FirebaseAuthException catch (e) {
-      showSnackBar(context, e.message!); 
     }
   }
 
@@ -61,7 +58,6 @@ class FirebaseAuthProv extends ChangeNotifier{
     try {
       await _auth.currentUser!.delete();
     } on FirebaseAuthException catch (e) {
-      showSnackBar(context, e.message!); 
     }
   }
 }

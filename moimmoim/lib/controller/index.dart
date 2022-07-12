@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:projectapp/common/color_constants.dart';
-import 'package:projectapp/screen/page1.dart';
-import 'package:projectapp/screen/page2.dart';
-import 'package:projectapp/screen/page3.dart';
-import 'package:projectapp/screen/page4.dart';
+import 'package:projectapp/page/group.dart';
+import 'package:projectapp/page/home.dart';
+import 'package:projectapp/page/setting.dart';
+import 'package:projectapp/page/timeline.dart';
 
 class Index extends StatefulWidget {
   const Index({Key? key, required this.title}) : super(key: key);
@@ -18,10 +17,10 @@ class _Index extends State<Index> {
   int _curIndex = 0;
 
   final List<Widget> _pages = [
-    Page1(),
-    Page2(),
-    Page3(),
-    Page4(),
+    Home(),
+    Group(),
+    Timeline(),
+    Setting(),
   ];
 
   @override
@@ -34,11 +33,11 @@ class _Index extends State<Index> {
         child: getPage(),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: ColorConstants.gblackColor,
+        backgroundColor: Colors.white,
         iconSize: 30,
-        selectedItemColor: ColorConstants.kgreyColor,
+        selectedItemColor: Colors.white,
         selectedLabelStyle: const TextStyle(fontSize: 14),
-        unselectedItemColor: ColorConstants.kwhiteColor,
+        unselectedItemColor: Colors.white,
         unselectedLabelStyle: const TextStyle(fontSize: 14),
         currentIndex: _curIndex,
         onTap: (index) {
@@ -48,24 +47,24 @@ class _Index extends State<Index> {
         },
         items: const [
           BottomNavigationBarItem(
-            backgroundColor: ColorConstants.gblackColor,
+            backgroundColor: Colors.black54,
             icon: Icon(Icons.home),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            backgroundColor: ColorConstants.gblackColor,
-            icon: Icon(Icons.chat_sharp),
-            label: 'Board',
+            backgroundColor: Colors.black54,
+            icon: Icon(Icons.groups),
+            label: 'Group',
           ),
           BottomNavigationBarItem(
-            backgroundColor: ColorConstants.gblackColor,
-            icon: Icon(Icons.area_chart_rounded),
-            label: 'chart',
+            backgroundColor: Colors.black54,
+            icon: Icon(Icons.featured_play_list),
+            label: 'TimeLine',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings_sharp),
-            backgroundColor: ColorConstants.gblackColor,
-            label: 'settings',
+            icon: Icon(Icons.person),
+            backgroundColor: Colors.black54,
+            label: 'Settings',
           ),
         ],
       ),
@@ -76,16 +75,16 @@ class _Index extends State<Index> {
     Widget? page;
     switch (_curIndex) {
       case 0:
-        page = Page1();
+        page = Home();
         break;
       case 1:
-        page = Page2();
+        page = Group();
         break;
       case 2:
-        page = Page3();
+        page = Timeline();
         break;
       case 3:
-        page = Page4();
+        page = Setting();
         break;
     }
     return page!;
