@@ -27,7 +27,8 @@ class _Index extends State<Index> {
   Widget build(BuildContext context) {
     print('homescreen');
     return Scaffold(
-      body:
+      body: 
+      
       Center(
         child: getPage(),
       ),
@@ -66,9 +67,8 @@ class _Index extends State<Index> {
             label: 'Settings',
           ),
         ],
-      ),      
+      ),
     );
-    
   }
 
   Widget getPage() {

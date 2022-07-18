@@ -1,0 +1,71 @@
+
+
+import 'package:flutter/material.dart';
+import 'package:flutter/src/foundation/key.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
+
+class CtlCate extends GetxController{
+  var _categories = {
+    Category('work', 'iconPath': 'assets/icons/suitcase.png'},
+    {'name': 'travel', 'iconPath': 'assets/icons/luggage.png'},
+    {'name': 'book', 'iconPath': 'assets/icons/open-book.png'},
+    {'name': 'game', 'iconPath': 'assets/icons/game-control.png'},
+    {'name': 'music', 'iconPath': 'assets/icons/headphones.png'},
+    {'name': 'friend', 'iconPath': 'assets/icons/friendship.png'},
+    {'name': 'art', 'iconPath': 'assets/icons/fine-arts.png'},
+    {'name': 'free', 'iconPath': 'assets/icons/free.png'}, 
+
+  }
+    
+}
+class Category {
+  late final String name;
+  late final String iconPath;
+
+  Category(this.name,this.iconPath);
+}
+
+
+class CatgWidget extends StatelessWidget {
+  const CatgWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+
+
+
+// class MyWidget extends StatelessWidget {
+//   const MyWidget({Key? key}) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Row(
+//         children: [
+//           OutlinedButton(
+//             style: OutlinedButton.styleFrom(
+//               backgroundColor: Colors.green,
+//               primary: Colors.black87,
+//               padding: EdgeInsets.symmetric(horizontal: 40),
+//               elevation: 2,
+//               shape: RoundedRectangleBorder(
+//                   borderRadius: BorderRadius.circular(20)),
+//             ),
+//             onPressed: () {},
+//             child: Text("CANCEL",
+//                 style: TextStyle(
+//                     fontSize: 14,
+//                     letterSpacing: 2.2,
+//                     color: Colors.white)),
+//           ),
+          
+//         ],
+//       ), 
+                        
+//     );
+//   }
+// }
