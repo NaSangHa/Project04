@@ -8,7 +8,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:moimmoim/main.dart';
+// 2022.07.18 해당 부분 주석 바꾸기
+// import 'package:moimmoim/main.dart';
+import 'package:projectapp/main.dart'; 
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

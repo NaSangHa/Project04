@@ -13,6 +13,33 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,);
   runApp(MyApp());
 }
+// Theme Data
+  ThemeData _darkTheme = ThemeData(
+    appBarTheme: AppBarTheme(
+      backgroundColor: Colors.black87,
+      titleTextStyle: TextStyle(color: Colors.white),      
+      ),
+    accentColor: Colors.red,
+    brightness: Brightness.dark,
+    primaryColor: Colors.amber,
+    buttonTheme: ButtonThemeData(
+      buttonColor: Colors.amber,
+      disabledColor: Colors.grey,
+    ));
+
+  ThemeData _lightTheme = ThemeData(
+    appBarTheme: AppBarTheme(
+      backgroundColor: Colors.white,
+      titleTextStyle: TextStyle(color: Colors.black),       
+      ),
+    accentColor: Colors.pink,
+    brightness: Brightness.light,
+    primaryColor: Colors.blue,
+    
+    buttonTheme: ButtonThemeData(
+      buttonColor: Colors.black,
+      disabledColor: Colors.grey,
+    ));
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -27,15 +54,14 @@ class MyApp extends StatelessWidget {
         Provider(
           create: (context) => FirebaseAuthProv,
         ),
-      ],      
+      ],
       child: GetMaterialApp(
             debugShowCheckedModeBanner: false,
-            // themeMode: themeProvider.themeMode,
             themeMode: ThemeMode.system,
-            theme: ThemeData.light(),
-            darkTheme: ThemeData.dark(),
+            theme: _lightTheme,
+            darkTheme: _darkTheme,
             home: Index(title: 'Home',),
-          ),
+        ),
     );
   }
 }
