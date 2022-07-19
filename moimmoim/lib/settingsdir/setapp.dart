@@ -52,13 +52,13 @@ class SetApp extends StatelessWidget {
           shrinkWrap: true,
           children: [
             Container(
-              color: Colors.grey,
+              color: Colors.blueAccent,
               child: TextButton(
                 onPressed: (){
     
                 },
                 style: TextButton.styleFrom(
-                  primary: Colors.pink,
+                  primary: Colors.black,
                 ), 
                 child: Text(
                   "친구초대",style: TextStyle(fontSize: 30,), textAlign: TextAlign.right,
@@ -67,11 +67,11 @@ class SetApp extends StatelessWidget {
             ),
             SizedBox(height: 10,),
             Container(
-              color: Colors.grey,
+              color: Colors.blueAccent,
               child: TextButton(
                 onPressed:() => { Navigator.push(context,MaterialPageRoute(builder: (context) => HelpScreen()),)},
                 style: TextButton.styleFrom(
-                  primary: Colors.pink,
+                  primary: Colors.black,
                 ), 
                 child: Text(
                   "도움말",style: TextStyle(fontSize: 30,), textAlign: TextAlign.right,
@@ -81,11 +81,11 @@ class SetApp extends StatelessWidget {
 
             SizedBox(height: 10,),
             Container(
-              color: Colors.grey,
+              color: Colors.blueAccent,
               child: TextButton(
                 onPressed:() => { Navigator.push(context,MaterialPageRoute(builder: (context) => SetAgree()),)},
                 style: TextButton.styleFrom(
-                  primary: Colors.pink,
+                  primary: Colors.black,
                 ), 
                 child: Text(
                   "약관확인",style: TextStyle(fontSize: 30,), textAlign: TextAlign.right,
@@ -95,11 +95,11 @@ class SetApp extends StatelessWidget {
 
             SizedBox(height: 10,),
             Container(
-              color: Colors.grey,
+              color: Colors.blueAccent,
               child: TextButton(
                 onPressed:() => { Navigator.push(context,MaterialPageRoute(builder: (context) => CustomerService()),)},
                 style: TextButton.styleFrom(
-                  primary: Colors.pink,
+                  primary: Colors.black,
                 ), 
                 child: Text(
                   "고객센터",style: TextStyle(fontSize: 30,), textAlign: TextAlign.right,
@@ -109,13 +109,13 @@ class SetApp extends StatelessWidget {
             SizedBox(height: 10,),
 
             Container(
-              color: Colors.grey,
+              color: Colors.blueAccent,
               child: TextButton(
                 onPressed: (){
     
                 },
                 style: TextButton.styleFrom(
-                  primary: Colors.pink,
+                  primary: Colors.black,
                 ), 
                 child: Text(
                   "로그아웃",style: TextStyle(fontSize: 30,), textAlign: TextAlign.right,
@@ -124,13 +124,13 @@ class SetApp extends StatelessWidget {
             ),
             SizedBox(height: 10,),
             Container(
-              color: Colors.grey,
+              color: Colors.blueAccent,
               child: TextButton(
                 onPressed: (){
     
                 },
                 style: TextButton.styleFrom(
-                  primary: Colors.pink,
+                  primary: Colors.black,
                 ), 
                 child: Text(
                   "회원탈퇴",style: TextStyle(fontSize: 30,), textAlign: TextAlign.right,
