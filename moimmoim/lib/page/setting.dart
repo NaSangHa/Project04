@@ -19,7 +19,7 @@ class Setting extends StatefulWidget {
 
 class _SettingState extends State<Setting> {
   final int maxLine = 5;
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

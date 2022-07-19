@@ -16,9 +16,13 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   google_fonts: ^3.0.1
-  http: ^0.13.4
   font_awesome_flutter: ^10.1.0  
   settings_ui: ^2.0.2
+
+  #Json 
+  json_annotation: ^4.6.0
+  json_serializable: ^6.3.1
+  build_runner: ^2.2.0
 
   #Firebase dependencies
   firebase_core: ^1.19.1 
@@ -32,7 +36,7 @@ dependencies:
   url_launcher: ^6.1.5
   #Scrolling
 
-  #GETX
+  #Provider
   get: ^4.6.5
   provider: ^6.0.3
   shared_preferences: ^2.0.15 
@@ -41,6 +45,10 @@ dependencies:
   #home
   carousel_slider: ^4.0.0 #imageSlide
   flutter_swiper_view: ^1.1.8
+  
+  #Networking
+  cached_network_image: ^3.2.1
+  http: ^0.13.4
 
 dev_dependencies:
   flutter_test:

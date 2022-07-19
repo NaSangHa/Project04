@@ -51,11 +51,10 @@ class _ExpandableFabState extends State<ExpandableFab>
   void _toggle() {
     setState(() {
       _open = !_open;
-      if (_open) {
+      if (_open) 
         _controller.forward();
-      } else {
+      else 
         _controller.reverse();
-      }
     });
   }
 
@@ -67,6 +66,7 @@ class _ExpandableFabState extends State<ExpandableFab>
         clipBehavior: Clip.none,
         children: [
           _buildTapToCloseFab(),
+          ..._buildExpandingActionButtons(),
           _buildTapToOpenFab(),
         ],
       ),
@@ -88,7 +88,7 @@ class _ExpandableFabState extends State<ExpandableFab>
               padding: const EdgeInsets.all(8.0),
               child: Icon(
                 Icons.close,
-                color: Theme.of(context).primaryColor,
+                color: Colors.black,
               ),
             ),
           ),
@@ -126,15 +126,15 @@ class _ExpandableFabState extends State<ExpandableFab>
           _open ? 0.7 : 1.0,
           1.0,
         ),
-        duration: const Duration(milliseconds: 250),
-        curve: const Interval(0.0, 0.5, curve: Curves.easeOut),
+        duration: const Duration(milliseconds: 1050),
+        curve: const Interval(0.0, 0.5, curve: Curves.easeInToLinear),
         child: AnimatedOpacity(
           opacity: _open ? 0.0 : 1.0,
-          curve: const Interval(0.25, 1.0, curve: Curves.easeInOut),
+          curve: const Interval(0.25, 1.0, curve: Curves.easeOutBack),
           duration: const Duration(milliseconds: 250),
           child: FloatingActionButton(
             onPressed: _toggle,
-            child: const Icon(Icons.create),
+            child: const Icon(Icons.create,),
           ),
         ),
       ),
@@ -162,11 +162,11 @@ class _ExpandingActionButton extends StatelessWidget {
       animation: progress,
       builder: (context, child) {
         final offset = Offset.fromDirection(
-          directionInDegrees * (pi / 180.0),
+          directionInDegrees * (pi / 270.0),
           progress.value * maxDistance,
         );
         return Positioned(
-          right: 4.0 + offset.dx,
+          right: 0.0 + offset.dx,
           bottom: 4.0 + offset.dy,
           child: Transform.rotate(
             angle: (1.0 - progress.value) * pi / 2,

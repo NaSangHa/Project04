@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:projectapp/groupdir/createfriend.dart';
 import 'package:projectapp/groupdir/creategroup.dart';
 import 'package:projectapp/groupdir/friendgroup.dart';
@@ -17,12 +16,14 @@ class Group extends StatefulWidget {
   State<Group> createState() => _GroupState();
 }
 
-class _GroupState extends State<Group> with SingleTickerProviderStateMixin {
+class _GroupState extends State<Group> with SingleTickerProviderStateMixin {  
   final _counter = ValueNotifier(0);
-  var index = <String>['모두 모임', '친구모임'];
+  
+  var index = ['모두 모임', '친구모임'];
 
   final List people = ['name1', 'name2', 'name1', 'name2', 'name1', 'name2'];
-
+  
+  bool _havegroup = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,24 +65,7 @@ class _GroupState extends State<Group> with SingleTickerProviderStateMixin {
           IconButton(onPressed: () {}, icon: Icon(FontAwesomeIcons.bell)),
         ],
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
-      floatingActionButton: ExpandableFab(
-        distance: 12.0,
-        children: [
-          ActionButton(
-            icon: IconButton(
-              icon: const Icon(Icons.person),
-              onPressed: () => {CreateFriend()},
-            ),
-          ),
-          ActionButton(
-            icon: IconButton(
-              icon: const Icon(Icons.group),
-              onPressed: () => {CreateGroup()},
-            ),
-          ),
-        ],
-      ),
+
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -95,7 +79,7 @@ class _GroupState extends State<Group> with SingleTickerProviderStateMixin {
               ),
             ),
             Container(
-              child: OpenGroup(),
+              child: OpenGroup(mmember: '달러mmember'),
             ),
             SizedBox(
               height: 20,
@@ -105,6 +89,22 @@ class _GroupState extends State<Group> with SingleTickerProviderStateMixin {
             ),
           ],
         ),
+      ),
+
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButton: 
+      ExpandableFab(
+        distance: 180.0,
+        children: [
+          ActionButton(
+            onPressed: () {Navigator.push(    context,    MaterialPageRoute(builder: (context) => CreateFriend()),  );},
+            icon: const Icon(Icons.person, color: Colors.white,),
+          ),
+          ActionButton(
+            onPressed: () {Navigator.push(context,MaterialPageRoute(builder:(context) => CreateGroup()));},
+            icon: Icon(Icons.group,color: Colors.white,),
+          ),
+        ],
       ),
     );
   }
