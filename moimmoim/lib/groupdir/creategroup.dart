@@ -12,8 +12,25 @@ class CreateGroup extends StatefulWidget {
 class _CreateGroupState extends State<CreateGroup> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+        return Scaffold(
       
+      appBar: AppBar(title: Text("text")),
+      body: SingleChildScrollView(
+        child: Expanded(
+          child: Column(
+            children: [
+              Container(height: 100,),
+              Container(height: 100,),
+              Container(height: 100,),
+              Container(height: 100,),
+              Container(height: 100,),
+              Container(height: 100,),
+              ElevatedButton(onPressed: (){print("print");}, 
+              child: Text("text")),
+        
+            ],
+          ),
+        ),)
     );
   }
 }

@@ -19,6 +19,7 @@ class GroupApi extends StatelessWidget {
 
     print("statusCode: $statusCode");
     print("responseBody : $responseBody");
+    print(responseBody);
   }
 
   @override

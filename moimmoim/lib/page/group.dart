@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:projectapp/groupdir/createfriend.dart';
 import 'package:projectapp/groupdir/creategroup.dart';
 import 'package:projectapp/groupdir/friendgroup.dart';
-import 'package:projectapp/groupdir/gprofile.dart';
+import 'package:projectapp/groupdir/groupprofile.dart';
 import 'package:projectapp/groupdir/opengroup.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:projectapp/models/groupdata.dart';
 import 'package:projectapp/widget/actionbutton.dart';
 import 'package:projectapp/widget/expandable_fab.dart';
+import 'package:provider/provider.dart';
 
 class Group extends StatefulWidget {
   const Group({Key? key}) : super(key: key);
@@ -21,9 +23,16 @@ class _GroupState extends State<Group> with SingleTickerProviderStateMixin {
   
   var index = ['모두 모임', '친구모임'];
 
-  final List people = ['name1', 'name2', 'name1', 'name2', 'name1', 'name2'];
+  final List<GroupData> mmember ;
   
   bool _havegroup = false;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,15 +87,12 @@ class _GroupState extends State<Group> with SingleTickerProviderStateMixin {
                     GroupProfile(gname: people[index])),
               ),
             ),
-            Container(
-              child: OpenGroup(mmember: '달러mmember'),
-            ),
+            OpenGroup(mmember: '$mmember'),
+
             SizedBox(
               height: 20,
             ),
-            Container(
-              child: FriendGroup(),
-            ),
+            FriendGroup(mmember: '$mmember'),
           ],
         ),
       ),

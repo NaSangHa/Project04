@@ -27,7 +27,7 @@ class TextBoxforSetting extends StatelessWidget {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(22),
                   ),
-                  width: 360,
+                  width: 340,
                   height: 178,
                   child: 
                   Column(
@@ -35,7 +35,7 @@ class TextBoxforSetting extends StatelessWidget {
                       Container(
                         alignment: Alignment.center,
                         height: 35,
-                        width: 360,
+                        width: 340,
                         decoration: BoxDecoration(
                           
                           borderRadius: BorderRadius.only(topLeft: Radius.circular(18),topRight: Radius.circular(18)),
