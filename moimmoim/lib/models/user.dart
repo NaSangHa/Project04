@@ -1,54 +1,91 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+class Usersdata {
+  List<Members>? members;
 
-//DAO
+  Usersdata({this.members});
 
-class User {
-  final String email;
-  final String profileImg; //photoURL
-  final String name;
-  final String category;
-  final List follower;
-  List? following;
-  String? pw; // 암호
-  String? phone; // CELL PHONE
-  String? authority; // 페이지원한
-  String? enabled;  // 사이트 관리자
-  String? message; // 알람표기
-  String? favorite; // 관심목록
-  String? introduction; //자기소개
-
-
-  User(
-      {required this.name,
-        required this.profileImg,
-        required this.email,
-        required this.category,
-        required this.follower});
-
-  static User fromSnap(DocumentSnapshot snap) {
-    var snapshot = snap.data() as Map<String, dynamic>;
-
-    return User(
-      name: snapshot["username"],
-      email: snapshot["email"],
-      profileImg: snapshot["photoUrl"],
-      category: snapshot["category"],
-      follower: snapshot["follower"],
-    );
+  Usersdata.fromJson(Map<String, dynamic> json) {
+    if (json['members'] != null) {
+      members = <Members>[];
+      json['members'].forEach((v) {
+        members!.add(new Members.fromJson(v));
+      });
+    }
   }
 
-  Map<String, dynamic> toJson() =>
-    {"email": email,
-      "pw": pw,
-      "phone" : phone,
-      "name": name,
-      "category": category,
-      "follower": follower,
-      "profileImg": profileImg,
-      "authority": authority,
-      "enabled": enabled,
-      "message": message,
-      "favorite": favorite,
-      "introduction": introduction
-  };
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    if (this.members != null) {
+      data['members'] = this.members!.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
+}
+
+class Members {
+  String? follower;
+  String? authorith;
+  String? pw;
+  String? favroite;
+  String? message;
+  String? type;
+  String? enabled;
+  String? phone;
+  String? name;
+  String? id;
+  String? category;
+  String? profileimg;
+  String? email;
+  String? introduction;
+
+  Members(
+      {this.follower,
+      this.authorith,
+      this.pw,
+      this.favroite,
+      this.message,
+      this.type,
+      this.enabled,
+      this.phone,
+      this.name,
+      this.id,
+      this.category,
+      this.profileimg,
+      this.email,
+      this.introduction});
+
+  Members.fromJson(Map<String, dynamic> json) {
+    follower = json['follower'];
+    authorith = json['authorith'];
+    pw = json['pw'];
+    favroite = json['favroite'];
+    message = json['message'];
+    type = json['type'];
+    enabled = json['enabled'];
+    phone = json['phone'];
+    name = json['name'];
+    id = json['id'];
+    category = json['category'];
+    profileimg = json['profileimg'];
+    email = json['email'];
+    introduction = json['introduction'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['follower'] = this.follower;
+    data['authorith'] = this.authorith;
+    data['pw'] = this.pw;
+    data['favroite'] = this.favroite;
+    data['message'] = this.message;
+    data['type'] = this.type;
+    data['enabled'] = this.enabled;
+    data['phone'] = this.phone;
+    data['name'] = this.name;
+    data['id'] = this.id;
+    data['category'] = this.category;
+    data['profileimg'] = this.profileimg;
+    data['email'] = this.email;
+    data['introduction'] = this.introduction;
+    return data;
+  }
 }

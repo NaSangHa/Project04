@@ -28,6 +28,8 @@ dependencies:
   #Auth dependencies
   google_sign_in: ^5.3.3
 
+  #Url_launcher 
+  url_launcher: ^6.1.5
   #Scrolling
 
   #GETX
