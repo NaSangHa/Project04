@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:projectapp/profiledir/setbox.dart';
+import 'package:projectapp/profiledir/setboxfav.dart';
+import 'package:projectapp/profiledir/setboxtimeline.dart';
 import 'package:projectapp/settingsdir/setapp.dart';
-import 'package:projectapp/settingsdir/setprofile.dart';
+import 'package:projectapp/settingsdir/edittprofile.dart';
+import 'package:projectapp/settingsdir/settingprofile.dart';
+
 
 class Setting extends StatefulWidget {
   const Setting({Key? key}) : super(key: key);
@@ -54,31 +60,17 @@ class _SettingState extends State<Setting> {
               ),
             ),
             IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SetApp()),
-                );
-              },
+              onPressed: () {Navigator.push(context,MaterialPageRoute(builder: (context) => SetApp()),);},
+              color: Colors.blue,
               icon: Icon(
                 Icons.settings,
-                color: CupertinoDynamicColor(
-                    color: Colors.black,
-                    darkColor: Colors.white,
-                    highContrastColor: Colors.grey,
-                    darkHighContrastColor: Colors.white60,
-                    elevatedColor: Colors.white24,
-                    darkElevatedColor: Colors.white24,
-                    highContrastElevatedColor: Colors.white24,
-                    darkHighContrastElevatedColor: Colors.white24,
-                    debugLabel: '1'),
                 size: 35,
               ),
             ),
           ],
         ),
       ),
-      body: Container(        
+      body: Container(                
         child: GestureDetector(
           onTap: () {
             FocusScope.of(context).unfocus();
@@ -95,142 +87,36 @@ class _SettingState extends State<Setting> {
                       color: Theme.of(context).scaffoldBackgroundColor,
                     ),
                     Container(
-                      color: Colors.teal,
-                      child: Stack(
-                        children: [
-                          Container(
-                            width: 140,
-                            height: 140,
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                  width: 4,
-                                  color: Theme.of(context)
-                                      .scaffoldBackgroundColor),
-                              boxShadow: [
-                                BoxShadow(
-                                  spreadRadius: 2,
-                                  blurRadius: 10,
-                                  color: Colors.black.withOpacity(0.1),
-                                  offset: Offset(0, 10),
-                                ),
-                              ],
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image: NetworkImage(
-                                      "https://i.stack.imgur.com/14h3t.png")),
-                            ),
-                          ),
-                          Positioned(
-                            bottom: 0,
-                            left: 100,
-                            child: Container(
-                              height: 40,
-                              width: 40,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                    width: 4,
-                                    color: Theme.of(context)
-                                        .scaffoldBackgroundColor),
-                                color: Colors.green,
-                              ),
-                              child: InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const SetProfile()),
-                                  );
-                                },
-                                child: Icon(
-                                  Icons.edit,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            top: 14,
-                            left: 200,
-                            child: Container(
-                              height: 50,
-                              width: 150,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.rectangle,
-                                border: Border.all(
-                                    width: 1,
-                                    color: Theme.of(context)
-                                        .scaffoldBackgroundColor),
-                                color: Colors.green,
-                              ),
-                              child: TextButton(
-                                onPressed: () => {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => SetApp()),
-                                  )
-                                },
-                                child: Text(
-                                  "친구 목록",
-                                  textAlign: TextAlign.center,
-                                  style: GoogleFonts.robotoMono(
-                                    color: Colors.black,
-                                    fontSize: 24,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            top: 72,
-                            left: 200,
-                            child: Container(
-                              height: 50,
-                              width: 150,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.rectangle,
-                                border: Border.all(
-                                    width: 1,
-                                    color: Theme.of(context)
-                                        .scaffoldBackgroundColor),
-                              ),
-                              child: TextButton(
-                                onPressed: () => {                                  
-                                },
-                                child: Text(
-                                  "@USERNAME",
-                                  textAlign: TextAlign.center,
-                                  style: GoogleFonts.robotoMono(
-                                    color: Colors.black,
-                                    fontSize: 20,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                      child:SettingProfile(),
                     ),
                     SizedBox(
-                      height: 35,
+                      height: 30,
                     ),
+                    Container(height: 3,
+                    decoration: BoxDecoration(
+                      color: Colors.grey
+                    ),),
+                    SizedBox(height: 20,),
                     Container(
-                      height: 200,
-                      color: Colors.red,
-                      child: Text("자기소개 JSON"),
+                      child: TextBoxforSetting(value: 'introduction'), //Member - introduction
                     ),
                     SizedBox(
                       height: 20,
-                    ),
+                    ),                    
                     Container(
-                      height: 300,
-                      color: Colors.red,
-                      child: Text("내용 나옴"),
+                      child: TimeLineforSetting(value: 'tlId'),  // Timeline - tlID
                     ),
+                    SizedBox(
+                      height: 20,
+                    ),                    
+                    Container(
+                      child: FavoriteforSetting(value: 'favorite'),  // Member - Favorite
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),     
 
+                    
                     // Row(
                     //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     //   children: [
