@@ -1,25 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:projectapp/profiledir/setbox.dart';
 import 'package:projectapp/profiledir/setboxfav.dart';
 import 'package:projectapp/profiledir/setboxtimeline.dart';
-import 'package:projectapp/settingsdir/setapp.dart';
-import 'package:projectapp/settingsdir/edittprofile.dart';
-import 'package:projectapp/settingsdir/settingprofile.dart';
+import 'package:projectapp/settingsdir/othersprofile.dart';
 
-
-class Setting extends StatefulWidget {
-  const Setting({Key? key}) : super(key: key);
+class OtherProfile extends StatefulWidget {
+  const OtherProfile({Key? key}) : super(key: key);
 
   @override
-  State<Setting> createState() => _SettingState();
+  State<OtherProfile> createState() => _OtherProfileState();
 }
 
-class _SettingState extends State<Setting> {
+class _OtherProfileState extends State<OtherProfile> {
   final int maxLine = 5;
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,44 +28,15 @@ class _SettingState extends State<Setting> {
         toolbarHeight: 60,
         centerTitle: false,
         title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            GestureDetector(
-              onTap: () {
-                //TRY TO RETURN TO HOME PAGE
-              },
-              child: Padding(
-                padding: EdgeInsets.only(right: 20),
-                child: Image(
-                  image: AssetImage(
-                    'assets/images/logo.png',
-                  ),
-                  fit: BoxFit.fitHeight,
-                  height: 60,
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 6,
-              child: Text(
-                style: GoogleFonts.robotoMono(
-                  fontSize: 23,
-                ),
-                "  내 프로필",
-              ),
-            ),
-            IconButton(
-              onPressed: () {Navigator.push(context,MaterialPageRoute(builder: (context) => SetApp()),);},
-              color: Colors.blue,
-              icon: Icon(
-                Icons.settings,
-                size: 35,
-              ),
-            ),
+          children: [
+            Text(" 프로필 ",
+            style: GoogleFonts.robotoMono(fontSize: 24),),
           ],
         ),
+        leading: IconButton(icon:Icon(Icons.arrow_back_ios_new_rounded),color: Colors.blueAccent,
+          onPressed: () {Navigator.pop(context);},),
       ),
-      body: Container(                
+      body: Container(        
         child: GestureDetector(
           onTap: () {
             FocusScope.of(context).unfocus();
@@ -87,7 +53,7 @@ class _SettingState extends State<Setting> {
                       color: Theme.of(context).scaffoldBackgroundColor,
                     ),
                     Container(
-                      child:SettingProfile(),
+                      child:OthersProfile(),
                     ),
                     SizedBox(
                       height: 30,

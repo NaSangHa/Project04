@@ -1,17 +1,20 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:projectapp/widget/setcatebutton.dart';
 
 
-class SetProfile extends StatefulWidget {
-  const SetProfile({Key? key}) : super(key: key);
+class EditProfile extends StatefulWidget {
+  const EditProfile({Key? key}) : super(key: key);
 
   @override
-  State<SetProfile> createState() => _SetProfileState();
+  State<EditProfile> createState() => _EditProfileState();
 }
 
-class _SetProfileState extends State<SetProfile> {
+class _EditProfileState extends State<EditProfile> {
   final int maxLine = 5;
   bool showPassword = false;
   bool isPassword = false;
@@ -42,7 +45,7 @@ class _SetProfileState extends State<SetProfile> {
         actions: [
           OutlinedButton(
             style: OutlinedButton.styleFrom(
-              backgroundColor: Colors.green,
+              backgroundColor: Colors.blueAccent,
               primary: Colors.black87,
               padding: EdgeInsets.symmetric(horizontal: 10),
               elevation: 2,
@@ -50,7 +53,7 @@ class _SetProfileState extends State<SetProfile> {
                   borderRadius: BorderRadius.circular(20)),
             ),
             onPressed: () {
-              //확인버튼
+              print("confirm"); //확인버튼
             },
             child: IconButton(
                 icon: Icon(Icons.check), onPressed: () {}, color: Colors.black),
@@ -84,19 +87,15 @@ class _SetProfileState extends State<SetProfile> {
                 },
                 child: ListView(
                   children: [
-                    Text(
-                      "Edit Profile",
-                      style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
-                    ),
                     SizedBox(
-                      height: 15,
+                      height: 25,
                     ),
                     Center(
                       child: Stack(
                         children: [
                           Container(
-                            width: 130,
-                            height: 130,
+                            width: 150,
+                            height: 150,
                             decoration: BoxDecoration(
                               border: Border.all(
                                   width: 4,
@@ -125,13 +124,14 @@ class _SetProfileState extends State<SetProfile> {
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 border: Border.all(
-                                    width: 4,
+                                  width: 4,
                                     color: Theme.of(context).scaffoldBackgroundColor),
-                                color: Colors.pink,
+                                color: Colors.blueAccent,
                               ),
-                              child: Icon(
-                                Icons.edit,
+                              child: IconButton(
+                                icon: Icon(Icons.mode_edit_outline),
                                 color: Colors.white,
+                                onPressed: () {},
                               ),
                             ),
                           ),
@@ -143,7 +143,6 @@ class _SetProfileState extends State<SetProfile> {
                     ),
                     Container(
                       alignment: Alignment.topLeft,
-                      color: Colors.red,
                       child: Text(
                         "자기소개",
                         style: GoogleFonts.robotoMono(
@@ -151,17 +150,17 @@ class _SetProfileState extends State<SetProfile> {
                       ),
                       padding: EdgeInsetsDirectional.only(start: 30.0, bottom: 3.0),
                     ),
+                    SizedBox(height: 10,),
                     TextFormField(
                       decoration: const InputDecoration(
                         icon: Icon(FontAwesomeIcons.penToSquare),
                         border: OutlineInputBorder(),
-                      ),
+                      ),minLines: 3,maxLines: 4,
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Container(
-                      color: Colors.red,
                       child: Text(
                         "전화번호",
                         style: GoogleFonts.robotoMono(
@@ -169,17 +168,17 @@ class _SetProfileState extends State<SetProfile> {
                       ),
                       padding: EdgeInsetsDirectional.only(start: 30.0, bottom: 3.0),
                     ),
+                    SizedBox(height: 10,),
                     TextFormField(
                       decoration: const InputDecoration(
                         icon: Icon(FontAwesomeIcons.mobileScreenButton),
-                        border: OutlineInputBorder(),
+                        border: OutlineInputBorder(),                        
                       ),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Container(
-                      color: Colors.red,
                       child: Text(
                         "비밀번호",
                         style: GoogleFonts.robotoMono(
@@ -187,18 +186,15 @@ class _SetProfileState extends State<SetProfile> {
                       ),
                       padding: EdgeInsetsDirectional.only(start: 30.0, bottom: 3.0),
                     ),
+                    SizedBox(height: 10,),
                     TextFormField(
                       decoration: const InputDecoration(
                         icon: Icon(FontAwesomeIcons.lock),
                         border: OutlineInputBorder(),
                       ),
                     ),
-          
-                    SizedBox(
-                      height: 10,
-                    ),
+                    SizedBox(height: 10,),
                     Container(
-                      color: Colors.red,
                       child: Text(
                         "비밀번호확인",
                         style: GoogleFonts.robotoMono(
@@ -206,17 +202,15 @@ class _SetProfileState extends State<SetProfile> {
                       ),
                       padding: EdgeInsetsDirectional.only(start: 30.0, bottom: 3.0),
                     ),
+                    SizedBox(height: 10,),
                     TextFormField(
                       decoration: const InputDecoration(
                         icon: Icon(FontAwesomeIcons.lock),
-                        border: OutlineInputBorder(),
+                        border: OutlineInputBorder(),                        
                       ),
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
+                    SizedBox(height: 10,),
                     Container(
-                      color: Colors.red,
                       child: Text(
                         "카테고리",
                         style: GoogleFonts.robotoMono(
@@ -225,15 +219,21 @@ class _SetProfileState extends State<SetProfile> {
                       padding: EdgeInsetsDirectional.only(start: 30.0, bottom: 3.0),
                     ),
                     SizedBox(height: 10,),
+                    Row(
+                      children: [
+                        Icon(size: 35,Icons.category_outlined,color: Colors.grey,),
+                        Container(
+                          height: 100,
+                          width: 336,
+                          child: SetCateButton(),
+                        ),
+                      ],
+                    )
 
                   ],
                 ),
               ),
             ),
-          ),
-          Expanded(
-            child: 
-              SetCateButton(),
           ),
         ],
       ),      

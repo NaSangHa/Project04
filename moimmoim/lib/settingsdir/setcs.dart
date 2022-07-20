@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 class CustomerService extends StatefulWidget {
@@ -35,7 +36,9 @@ class CustomerServiceState extends State<CustomerService> {
         toolbarHeight: 60,
         centerTitle: false,
         actions: [
-          Icon(FontAwesomeIcons.phone)
+           IconButton(
+            icon: FaIcon(FontAwesomeIcons.phone),
+            onPressed: () => launch("tel://01085834161") ,),
         ],
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
