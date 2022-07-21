@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:projectapp/groupdir/createfriend.dart';
 import 'package:projectapp/groupdir/creategroup.dart';
 import 'package:projectapp/groupdir/friendgroup.dart';
-import 'package:projectapp/groupdir/gprofile.dart';
+import 'package:projectapp/groupdir/groupprofile.dart';
 import 'package:projectapp/groupdir/opengroup.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
