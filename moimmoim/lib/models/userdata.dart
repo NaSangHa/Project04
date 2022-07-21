@@ -1,9 +1,19 @@
-class Usersdata {
+import "dart:convert";
+
+List<Members> userModelFromJson(String str) =>
+
+    List<Members>.from(json.decode(str).map((x) => Members.fromJson(x)));
+
+String userModelToJson(List<Members> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+
+
+class UserData {
   List<Members>? members;
 
-  Usersdata({this.members});
+  UserData({this.members});
 
-  Usersdata.fromJson(Map<String, dynamic> json) {
+  UserData.fromJson(Map<String, dynamic> json) {
     if (json['members'] != null) {
       members = <Members>[];
       json['members'].forEach((v) {
@@ -39,19 +49,19 @@ class Members {
 
   Members(
       {this.follower,
-      this.authorith,
-      this.pw,
-      this.favroite,
-      this.message,
-      this.type,
-      this.enabled,
-      this.phone,
-      this.name,
-      this.id,
-      this.category,
-      this.profileimg,
-      this.email,
-      this.introduction});
+        this.authorith,
+        this.pw,
+        this.favroite,
+        this.message,
+        this.type,
+        this.enabled,
+        this.phone,
+        this.name,
+        this.id,
+        this.category,
+        this.profileimg,
+        this.email,
+        this.introduction});
 
   Members.fromJson(Map<String, dynamic> json) {
     follower = json['follower'];

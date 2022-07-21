@@ -9,7 +9,7 @@ class FavoriteforSetting extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return 
-      Stack(
+      Column(
         children: <Widget>[
           GestureDetector(
             onTap: () {}, // SEND TO TIMELINE CONTENT

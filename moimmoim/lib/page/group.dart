@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:projectapp/groupdir/createfriend.dart';
 import 'package:projectapp/groupdir/creategroup.dart';
 import 'package:projectapp/groupdir/friendgroup.dart';
-import 'package:projectapp/groupdir/groupprofile.dart';
+import 'package:projectapp/groupdir/gprofile.dart';
 import 'package:projectapp/groupdir/opengroup.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:projectapp/models/groupdata.dart';
 import 'package:projectapp/widget/actionbutton.dart';
 import 'package:projectapp/widget/expandable_fab.dart';
-import 'package:provider/provider.dart';
 
 class Group extends StatefulWidget {
   const Group({Key? key}) : super(key: key);
@@ -18,21 +17,12 @@ class Group extends StatefulWidget {
   State<Group> createState() => _GroupState();
 }
 
-class _GroupState extends State<Group> with SingleTickerProviderStateMixin {  
+class _GroupState extends State<Group> with SingleTickerProviderStateMixin {
   final _counter = ValueNotifier(0);
-  
-  var index = ['모두 모임', '친구모임'];
+  var index = <String>['모두 모임', '친구모임'];
 
-  final List<GroupData> mmember ;
-  
-  bool _havegroup = false;
+  final List people = ['name1', 'name2', 'name1', 'name2', 'name1', 'name2'];
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,7 +64,24 @@ class _GroupState extends State<Group> with SingleTickerProviderStateMixin {
           IconButton(onPressed: () {}, icon: Icon(FontAwesomeIcons.bell)),
         ],
       ),
-
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
+      floatingActionButton: ExpandableFab(
+        distance: 12.0,
+        children: [
+          ActionButton(
+            icon: IconButton(
+              icon: const Icon(Icons.person),
+              onPressed: () => {CreateFriend()},
+            ),
+          ),
+          ActionButton(
+            icon: IconButton(
+              icon: const Icon(Icons.group),
+              onPressed: () => {CreateGroup()},
+            ),
+          ),
+        ],
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -87,30 +94,17 @@ class _GroupState extends State<Group> with SingleTickerProviderStateMixin {
                     GroupProfile(gname: people[index])),
               ),
             ),
-            OpenGroup(mmember: '$mmember'),
-
+            Container(
+              child: OpenGroup(),
+            ),
             SizedBox(
               height: 20,
             ),
-            FriendGroup(mmember: '$mmember'),
+            Container(
+              child: FriendGroup(),
+            ),
           ],
         ),
-      ),
-
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-      floatingActionButton: 
-      ExpandableFab(
-        distance: 180.0,
-        children: [
-          ActionButton(
-            onPressed: () {Navigator.push(    context,    MaterialPageRoute(builder: (context) => CreateFriend()),  );},
-            icon: const Icon(Icons.person, color: Colors.white,),
-          ),
-          ActionButton(
-            onPressed: () {Navigator.push(context,MaterialPageRoute(builder:(context) => CreateGroup()));},
-            icon: Icon(Icons.group,color: Colors.white,),
-          ),
-        ],
       ),
     );
   }

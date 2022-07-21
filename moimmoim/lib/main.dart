@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projectapp/controller/firebase_auth_prov.dart';
 import 'package:projectapp/controller/index.dart';
+import 'package:projectapp/controller/user_prov.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -10,7 +11,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,);
-  runApp(MoimMoim());
+  runApp(MyApp());
 }
 // Theme Data
   ThemeData _darkTheme = ThemeData(
@@ -48,10 +49,10 @@ Future<void> main() async {
       disabledColor: Colors.grey,
     ));
 
-class MoimMoim extends StatelessWidget {
-  const MoimMoim({Key? key}) : super(key: key);
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
-  static const String title = '모임 모임';
+  static const String title = 'Talk&Stock';
 
   @override
    Widget build(BuildContext context) {
@@ -61,16 +62,15 @@ class MoimMoim extends StatelessWidget {
         Provider(
           create: (context) => FirebaseAuthProv,
         ),
-        // ChangeNotifierProvider(create: (context) => GroupProvider(),)
+        ChangeNotifierProvider(create :(context)=>UserProvider()),
       ],
       child: GetMaterialApp(
             debugShowCheckedModeBanner: false,
             themeMode: ThemeMode.system,
             theme: _lightTheme,
             darkTheme: _darkTheme,
-            home: Index(title: 'Home',),            
+            home: Index(title: 'Home',),
         ),
     );
   }
-
 }

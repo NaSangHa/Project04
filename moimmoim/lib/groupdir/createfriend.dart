@@ -16,20 +16,18 @@ class _CreateFriendState extends State<CreateFriend> {
       
       appBar: AppBar(title: Text("text")),
       body: SingleChildScrollView(
-        child: Expanded(
-          child: Column(
-            children: [
-              Container(height: 100,),
-              Container(height: 100,),
-              Container(height: 100,),
-              Container(height: 100,),
-              Container(height: 100,),
-              Container(height: 100,),
-              ElevatedButton(onPressed: (){print("print");}, 
-              child: Text("text")),
-        
-            ],
-          ),
+        child: Column(
+          children: [
+            Container(height: 100,),
+            Container(height: 100,),
+            Container(height: 100,),
+            Container(height: 100,),
+            Container(height: 100,),
+            Container(height: 100,),
+            ElevatedButton(onPressed: (){print("print");}, 
+            child: Text("text")),
+
+          ],
         ),)
     );
   }

@@ -44,17 +44,17 @@ class Meets {
 
   Meets(
       {String? mlocation,
-      String? mmax,
-      String? mdate,
-      String? mtitleimg,
-      String? mlike,
-      String? mprivate,
-      String? mid,
-      String? mcontent,
-      String? mcategory,
-      String? mtag,
-      String? mmember,
-      String? mtitle}) {
+        String? mmax,
+        String? mdate,
+        String? mtitleimg,
+        String? mlike,
+        String? mprivate,
+        String? mid,
+        String? mcontent,
+        String? mcategory,
+        String? mtag,
+        String? mmember,
+        String? mtitle}) {
     if (mlocation != null) {
       this._mlocation = mlocation;
     }

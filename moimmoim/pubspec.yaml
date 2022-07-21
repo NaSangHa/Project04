@@ -16,27 +16,27 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   google_fonts: ^3.0.1
+  http: ^0.13.4
   font_awesome_flutter: ^10.1.0  
   settings_ui: ^2.0.2
-
-  #Json 
-  json_annotation: ^4.6.0
-  json_serializable: ^6.3.1
-  build_runner: ^2.2.0
 
   #Firebase dependencies
   firebase_core: ^1.19.1 
   firebase_auth: ^3.3.20  
   cloud_firestore: ^3.1.18
   firebase_storage: ^10.3.1
+
   #Auth dependencies
   google_sign_in: ^5.3.3
+  flutter_facebook_auth: ^4.4.0+1
+  kakao_flutter_sdk: ^1.2.1 # 전체 추가
+  flutter_naver_login: ^1.6.0
 
   #Url_launcher 
   url_launcher: ^6.1.5
-  #Scrolling
-
-  #Provider
+  #Splash Screen
+  flutter_native_splash: ^2.2.5
+  #GETX
   get: ^4.6.5
   provider: ^6.0.3
   shared_preferences: ^2.0.15 
@@ -45,10 +45,6 @@ dependencies:
   #home
   carousel_slider: ^4.0.0 #imageSlide
   flutter_swiper_view: ^1.1.8
-  
-  #Networking
-  cached_network_image: ^3.2.1
-  http: ^0.13.4
 
 dev_dependencies:
   flutter_test:
