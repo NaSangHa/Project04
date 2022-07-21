@@ -25,11 +25,17 @@ dependencies:
   firebase_auth: ^3.3.20  
   cloud_firestore: ^3.1.18
   firebase_storage: ^10.3.1
+
   #Auth dependencies
   google_sign_in: ^5.3.3
+  flutter_facebook_auth: ^4.4.0+1
+  kakao_flutter_sdk: ^1.2.1 # 전체 추가
+  flutter_naver_login: ^1.6.0
 
-  #Scrolling
-
+  #Url_launcher 
+  url_launcher: ^6.1.5
+  #Splash Screen
+  flutter_native_splash: ^2.2.5
   #GETX
   get: ^4.6.5
   provider: ^6.0.3

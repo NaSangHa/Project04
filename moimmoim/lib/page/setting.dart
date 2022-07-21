@@ -1,13 +1,17 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:http/http.dart' as http;
 import 'package:google_fonts/google_fonts.dart';
-import 'package:projectapp/profiledir/setbox.dart';
+import 'package:projectapp/controller/service/userapi.dart';
+import 'package:projectapp/controller/user_prov.dart';
+import 'package:projectapp/models/userdata.dart';
+import 'package:projectapp/profiledir/setboxintro.dart';
 import 'package:projectapp/profiledir/setboxfav.dart';
 import 'package:projectapp/profiledir/setboxtimeline.dart';
 import 'package:projectapp/settingsdir/setapp.dart';
-import 'package:projectapp/settingsdir/edittprofile.dart';
-import 'package:projectapp/settingsdir/settingprofile.dart';
+import 'package:projectapp/profiledir/users/settingprofile.dart';
 
 
 class Setting extends StatefulWidget {
@@ -19,6 +23,25 @@ class Setting extends StatefulWidget {
 
 class _SettingState extends State<Setting> {
   final int maxLine = 5;
+  // var users = UserData;
+  // var isLoad = false;
+  late UserProvider userProvider;
+  // String? email = users.email;
+  // @override
+  // void initState() {
+  //   super.initState();
+  //
+  //   getData();
+  // }
+  //
+  // getData() async{
+  //   print(userProvider);
+  //   if (userProvider != null){
+  //     setState((){
+  //         isLoad =true;
+  //     });
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -70,96 +93,58 @@ class _SettingState extends State<Setting> {
           ],
         ),
       ),
-      body: Container(                
-        child: GestureDetector(
-          onTap: () {
-            FocusScope.of(context).unfocus();
-          },
-          child: Column(
-            children: [
-              Expanded(
-                child: ListView(
-                  shrinkWrap: true,
-                  children: [
-                    Container(
-                      height: 30,
-                      width: 100,
-                      color: Theme.of(context).scaffoldBackgroundColor,
+      body:  Container(
+          child: GestureDetector(
+            onTap: () {
+              FocusScope.of(context).unfocus();
+            },
+            child: Column(
+              children: [
+                Expanded(
+                  child: ListView(
+                      shrinkWrap: true,
+                      children: [
+                        Container(
+                          height: 30,
+                          width: 100,
+                          color: Theme.of(context).scaffoldBackgroundColor,
+                        ),
+                        Container(
+                          child:SettingProfile(),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Container(height: 3,
+                        decoration: BoxDecoration(
+                          color: Colors.grey
+                        ),),
+                        SizedBox(height: 20,),
+                        Container(
+                          child: TextBoxforSetting(value: 'email'), //Member - introduction
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          child: TimeLineforSetting(value: 'tlId'),  // Timeline - tlID
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          child: FavoriteforSetting(value: ''),  // Member - Favorite
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                      ],
                     ),
-                    Container(
-                      child:SettingProfile(),
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Container(height: 3,
-                    decoration: BoxDecoration(
-                      color: Colors.grey
-                    ),),
-                    SizedBox(height: 20,),
-                    Container(
-                      child: TextBoxforSetting(value: 'introduction'), //Member - introduction
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),                    
-                    Container(
-                      child: TimeLineforSetting(value: 'tlId'),  // Timeline - tlID
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),                    
-                    Container(
-                      child: FavoriteforSetting(value: 'favorite'),  // Member - Favorite
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),     
-
-                    
-                    // Row(
-                    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    //   children: [
-                    //     OutlinedButton(
-                    //       style: OutlinedButton.styleFrom(
-                    //         backgroundColor: Colors.white,
-                    //         primary: Colors.black87,
-                    //         padding: EdgeInsets.symmetric(horizontal: 40),
-                    //         elevation: 2,
-                    //         shape: RoundedRectangleBorder(
-                    //             borderRadius: BorderRadius.circular(20)),
-                    //       ),
-                    //       onPressed: () {},
-                    //       child: Text("CANCEL",
-                    //           style: TextStyle(
-                    //               fontSize: 14,
-                    //               letterSpacing: 2.2,
-                    //               color: Colors.black)),
-                    //     ),
-                    //     RaisedButton(
-                    //       onPressed: () {},
-                    //       color: Colors.green,
-                    //       padding: EdgeInsets.symmetric(horizontal: 50),
-                    //       elevation: 2,
-                    //       shape: RoundedRectangleBorder(
-                    //           borderRadius: BorderRadius.circular(20)),
-                    //       child: Text(
-                    //         "SAVE",
-                    //         style: TextStyle(
-                    //             fontSize: 14,
-                    //             letterSpacing: 2.2,
-                    //             color: Colors.white),
-                    //       ),
-                    //     )
-                    //   ],
-                    // )
-                  ],
-                ),
-              ),
-            ],
+                  ),
+              ],
+            ),
           ),
         ),
-      ),
-    );
+      );
   }
 }
